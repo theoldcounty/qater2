@@ -74,22 +74,23 @@ class Api extends CI_Controller {
 		$email = "";
 		$items = "";
 		$listings = "";
+		$firstname = "";
 
 		if(isset($GLOBALS)){
-			echo "<pre>";
+			//echo "<pre>";
 //				print_r($GLOBALS["data"]);
 				//print_r($GLOBALS["data"][0][0]->email);
 				//print_r($GLOBALS["data"][1]["listings"]);
-			echo "</pre>";
+			//echo "</pre>";
 
 			$email = $GLOBALS["data"][0][0]->email;
 			$items = $GLOBALS["data"][0][0]->items;
+			$firstname = $GLOBALS["data"][0][0]->firstName;
 
 			$listings = $GLOBALS["data"][1]["listings"];
 		}
 			
 			$items = explode(",", $items);
-
 
 			$listingsdescription = array_column($listings, 'description', 'id');
 			$listingsfulldescription = array_column($listings, 'fulldescription', 'id');
@@ -104,7 +105,6 @@ class Api extends CI_Controller {
 
 				$selectedItems[] = $i;
 			}
-
 
 		$to = $email;//'rob.shan.lone@gmail.com';
 		$subject = "Thanks for Entering the competition";
@@ -131,7 +131,7 @@ class Api extends CI_Controller {
 		    </body>
 		    </html>';*/
 
-		$htmlContent = '
+		$htmlContent ='
 			<html>
 			<head>
 			<title>Thankyou for registering with Visit Britain & Qatar Airways</title>
@@ -157,7 +157,7 @@ class Api extends CI_Controller {
 					<td colspan="3">
 						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_04.png" width="33" height="216" alt=""></td>
 					<td style="color: #454545; font-size: 16px; text-align: left; font-family: tahoma, helvetica, sans serif; line-height: 20px;">
-					Thanks xxxx for signing up to our newsletter.<br/>
+					Thanks '.$firstname.' for signing up to our newsletter.<br/>
 						<br/>
 						You’re now in the running to win an exclusive trip to the UK courtsey of<br/>
 						Qatar Airlines and Visit Britain.<br/>
@@ -184,21 +184,26 @@ class Api extends CI_Controller {
 						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_11.png" width="29" height="3" alt=""></td>
 				</tr>';
 
-				foreach ($selectedItems as $val) {
-					$htmlContent +='<tr>
-						<td colspan="6" bgcolor="#662046" style="color:#ffffff; font-size: 14px; line-height: 23px; font-family: tahoma, helvetica, sans serif; padding: 0 30px 0 30px;">
-						<br/>
-						<span style="font-size: 28px; font-weight: bold; line-height: 33px;">'.$val["description"].'</span>
-						<br/><br/>
-						'.$val["fulldescription"].'
-						<br/><br/>	
-							
-						</td>
-					</tr>';					
-				}
+			foreach ($selectedItems as $val) {
+				$htmlContent .='<tr>
+					<td colspan="6" bgcolor="#662046" style="color:#ffffff; font-size: 14px; line-height: 23px; font-family: tahoma, helvetica, sans serif; padding: 0 30px 0 30px;">
+					<br/>
+					<span style="font-size: 28px; font-weight: bold; line-height: 33px; color:#ffffff;">'.$val["description"].'</span>
+					<br/>
+					<span style="color:#ffffff;">'.$val["fulldescription"].'</span>
+					<br/>
+					<img src="http://discoverbritainnow.com/assets/images/assets/square/'.$val["id"].'.jpg" width="100px">
+					</td>
+				</tr>';				
+			}
+
+			/*
+
+					<img src="http://discoverbritainnow.com/assets/images/assets/square/'.$val["id"].'.jpg" width="100px">
+			*/
 
 
-			$htmlContent +='<tr>
+			$htmlContent .='<tr>
 					<td colspan="6">
 						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_13.png" width="600" height="73" alt=""></td>
 				</tr>

@@ -112,7 +112,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							    <label  class="termsQAT" for="termsQAT" data-ar="x">I agree to the Qatar Airways Terms and Conditions</label>
 							    <input type="checkbox" id="termsQAT" name="termsQAT" value="1">
 
-							    <input type="submit" data-ar="لخطوة التالية" value="New Step >">
+							    <input type="submit" data-ar="لخطوة التالية" value="Next Step >">
 							  </fieldset>
 							</form>
 
@@ -443,7 +443,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 							<h3 data-ar="ستكشف المزيد بشأن لحظاتك المُختارة">Discover more about your chosen moments</h3>
 
-							<p class="listingcopy">Fly in from <span class="flyingfrom">Abu Dhabi</span> to London</p>
+							<!--
+							<p class="listingcopy">Fly in from <span class="flyingfrom">Abu Dhabi</span> to London</p>-->
 
 							<!--
 							<p data-ar="شكرًا لك!">Thank you</p>

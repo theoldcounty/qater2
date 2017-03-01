@@ -67,7 +67,8 @@ var app = {
 		var markers = new Array();
 		$('[data-type="markers"]').each(function(index) {
 			$(this).addClass($(this).data("size"));
-			$(this).css("left", $(this).data("pos-x")).css("top", $(this).data("pos-y")).css("z-index", index);
+			//$(this).css("left", $(this).data("pos-x")).css("top", $(this).data("pos-y")).css("z-index", index);
+			$(this).css("left", $(this).data("pos-x")).css("top", $(this).data("pos-y")).css("z-index", parseInt($(this).data("pos-y"), 10));
 		});
 
 		//if y pos is low e.g. 9 -- and has a zindex 2 -- and another market near has a higher y pos 15 and a lower index 1 -- readjust
@@ -306,8 +307,8 @@ var app = {
 		// validate signup form on keyup and submit
 		$("#signupForm").validate({
 			rules: {
-				firstname: "required",
-				lastname: "required",
+				firstName: "required",
+				surname: "required",
 				email: {
 					required: true,
 					email: true
@@ -316,8 +317,8 @@ var app = {
 				termsQAT: "required"
 			},
 			messages: {
-				firstname: "Please enter your firstname",
-				lastname: "Please enter your lastname",
+				firstName: "Please enter your firstname",
+				surname: "Please enter your lastname",
 				email: "Please enter a valid email address",
 				termsBT: "Please agree to the Visit Britain Terms",
 				termsQAT: "Please agree to the Qatar Terms"

@@ -146,6 +146,7 @@
 	label.error{
 		font-size: 12px;
 		margin-top: -15px;
+    	color: palegoldenrod;
 	}
 
 	.selectionform{
@@ -461,6 +462,9 @@
 	.termsQAT,
 	.termsBT{
 		font-size: 12px;
+	}
+	.termsBT{
+		margin-top: 24px;
 	}
 
 	#termsBT-error,
