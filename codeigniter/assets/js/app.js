@@ -150,13 +150,22 @@ var app = {
 		});
 
 		$(".grid-item").click(function() {
-		  var isUnselected = $(this).hasClass("unselected");
+			var isUnselected = $(this).hasClass("unselected");
 
-		  if(that.count + 1 > 5){
-		  	$('.selection .error').fadeIn();
-		  }else{
-		  	$('.selection .error').fadeOut();
-		  }
+			var simulation = that.count + 1;
+			if(!isUnselected){
+				simulation = that.count - 1;
+			}
+
+			if(simulation > 5){
+				$('.selection .error').fadeIn();
+			}else{
+				$('.selection .error').fadeOut();
+			}
+
+			if(simulation > 5){
+				return false;
+			}
 
 		  if(isUnselected){
 		  	//remove unselected class -- add selected class
@@ -296,15 +305,24 @@ var app = {
 				email: {
 					required: true,
 					email: true
-				}
+				},
+				termsBT: "required",
+				termsQAT: "required"
 			},
 			messages: {
 				firstname: "Please enter your firstname",
 				lastname: "Please enter your lastname",
-				email: "Please enter a valid email address"
+				email: "Please enter a valid email address",
+				termsBT: "Please agree to the Visit Britain Terms",
+				termsQAT: "Please agree to the Qatar Terms"
 			},
 			submitHandler: function(form) {			    
 			    var data = JSON.parse(JSON.stringify($(form).serializeObject()));
+
+				delete data["termsBT"];
+				delete data["termsQAT"];
+
+			    //console.log("data", data);
 				callback(data);
 			}
 		});

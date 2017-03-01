@@ -53,14 +53,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 							<!--col-->
 							<div class="col-xs-2 col-md-2 col">
-								<img src="<?php echo base_url(); ?>assets/images/qatar-logo.png" alt="Qatar"/>
+								<img src="<?php echo base_url(); ?>assets/images/great-logo.png" alt="Great"/>
 							</div>
 							<!--col-->
 
 							<!--col-->
-							<div class="col-xs-4 col-md-4 pull-right col">
-								<img src="<?php echo base_url(); ?>assets/images/omgb-logo.png" alt="OMGB"/>
-								<img src="<?php echo base_url(); ?>assets/images/great-logo.png" alt="Great"/>
+							<div class="col-xs-2 col-md-2 pull-right col">
+								<img src="<?php echo base_url(); ?>assets/images/qatar-logo.png" alt="Qatar"/>
 							</div>
 							<!--col-->
 
@@ -79,12 +78,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="row">
 
 						<!--col-->
-						<div class="col-xs-12 col-md-5 col infocontainer">
-							<div class="infowrap">
-								<h2 data-ar="ربح رحلة رائعة إلى المملكة المتحدة">Win an amazing trip to the UK</h2>	
+						<div class="col-xs-12 col-md-5 col">
+								
+							<div class="infocontainer">
+								<div class="infowrap">
+									<h2 data-ar="ربح رحلة رائعة إلى المملكة المتحدة">Win an amazing trip to the UK</h2>	
 
-								<p data-ar="كل ما عليك هو الاشتراك في رسائلنا الإخبارية، واختيار لحظاتك الخمس المفضلة، ومشاركة النتائج الخاصة بك للحصول على فرصة الربح">Simply sign up to our newsletter, choose your five favourite moments and share your results to be in with a chance.</p>
+									<p data-ar="كل ما عليك هو الاشتراك في رسائلنا الإخبارية، واختيار لحظاتك الخمس المفضلة، ومشاركة النتائج الخاصة بك للحصول على فرصة الربح">Simply sign up to our newsletter, choose your five favourite moments and share your results to be in with a chance.</p>
+								</div>
 							</div>
+
+							<img src="<?php echo base_url(); ?>assets/images/omgb-logo.png" alt="OMGB"/>
 						</div>
 						<!--col-->
 
@@ -101,6 +105,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							    
 								<label for="email" data-ar="لبريد الإلكتروني">Email</label>
 							    <input type="text" id="email" name="email" value="">
+							   
+							    <label class="termsBT" for="termsBT" data-ar="x">I agree to the Visit Britain Terms and Conditions</label>
+							    <input type="checkbox" id="termsBT" name="termsBT" value="1">
+
+							    <label  class="termsQAT" for="termsQAT" data-ar="x">I agree to the Qatar Airways Terms and Conditions</label>
+							    <input type="checkbox" id="termsQAT" name="termsQAT" value="1">
 
 							    <input type="submit" data-ar="لخطوة التالية" value="New Step >">
 							  </fieldset>
@@ -130,6 +140,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 						</div>
 						<!--col-->
+
+						<!--col-->
+						<div class="col-xs-12 col-md-6 col">
+							<div class="omgblogo">
+								<img src="<?php echo base_url(); ?>assets/images/omgb-logo.png" alt="OMGB"/>
+							</div>
+						</div>
+						<!--col-->
+
+							
 
 						<!--col-->
 						<div class="col-xs-12 col-md-12 col selectionform">
@@ -345,6 +365,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 						</div>
 						<!--col-->
+						
+						<!--col-->
+						<div class="col-xs-12 col-md-6 col">
+							<div class="omgblogo">
+								<img src="<?php echo base_url(); ?>assets/images/omgb-logo.png" alt="OMGB"/>
+							</div>
+						</div>
+						<!--col-->
 
 						<!--col-->
 						<div class="col-xs-12 col-md-12 col white">
@@ -488,14 +516,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 						<!--col-->
 						<div class="col-xs-2 col-md-2 col">
-							<img src="<?php echo base_url(); ?>assets/images/qatar-logo.png" alt="Qatar"/>
+							<img src="<?php echo base_url(); ?>assets/images/great-logo.png" alt="Great"/>
 						</div>
 						<!--col-->
 
 						<!--col-->
-						<div class="col-xs-4 col-md-4 pull-right col">
-							<img src="<?php echo base_url(); ?>assets/images/omgb-logo.png" alt="OMGB"/>
-							<img src="<?php echo base_url(); ?>assets/images/great-logo.png" alt="Great"/>
+						<div class="col-xs-2 col-md-2 pull-right col">
+							<img src="<?php echo base_url(); ?>assets/images/qatar-logo.png" alt="Qatar"/>
 						</div>
 						<!--col-->
 
