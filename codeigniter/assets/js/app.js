@@ -260,6 +260,7 @@ var app = {
 				//console.log("arabic text", arabicText);
 				$(this).text(arabicText);
 				$(this).val(arabicText);
+				$(this).attr("src",arabicText);
 			});
 		}
 
@@ -290,6 +291,8 @@ var app = {
 					return this.value; 
 					// get it as an array
 				}).get();
+
+				$('.flyingfrom').text(data["flyingFrom"]);
 
 				that.togglePage("#page3");
 				that.mapHandler(choices);

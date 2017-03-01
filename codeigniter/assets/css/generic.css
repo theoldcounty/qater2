@@ -151,15 +151,19 @@
 	.selectionform{
 		background: #ffffff;
 		color: #000000;
-		text-align: center;
+		text-align: center!important;
 	}
 	.selectionform label{
 		color: #000000;
 		font-size: 24px;
-		font-family: 'jotiabold';
 	    margin-bottom: 35px;
 	    margin-top: 35px;
 	}
+
+	.selectionform label span.bold{
+		font-family: 'jotiabold';
+	}
+
 	.selectionform label span{
 		color: #5e6a71;
 		font-family: 'jotiaregular';
@@ -377,6 +381,10 @@
 		text-align: center;
 	}
 
+	.listingcopy{
+		text-align: center;
+	}
+
 	.list{
 		padding: 20px;
 	}
@@ -460,6 +468,13 @@
 		margin-left: 20px;
 	}
 
+	.logoomgb{
+		width: 170px;
+	}
+
+	.qatarlog{
+		width: 150px;
+	}
 
 	@media screen and (min-width: 768px) {
 
@@ -576,6 +591,10 @@
 
 		.omgblogo{	    
 		    height: 210px;
+		}
+
+		.ar .omgblogo{
+			height: 179px;
 		}
 
 		.grid-item.selected .textholder{

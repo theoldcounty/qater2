@@ -52,14 +52,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="row">
 
 							<!--col-->
-							<div class="col-xs-2 col-md-2 col">
+							<div class="col-xs-4 col-md-2 col">
 								<img src="<?php echo base_url(); ?>assets/images/great-logo.png" alt="Great"/>
 							</div>
 							<!--col-->
 
 							<!--col-->
-							<div class="col-xs-2 col-md-2 pull-right col">
-								<img src="<?php echo base_url(); ?>assets/images/qatar-logo.png" alt="Qatar"/>
+							<div class="col-xs-6 col-md-2 pull-right col">
+								<img class="qatarlog" src="<?php echo base_url(); ?>assets/images/QatarEN.png" alt="Qatar"/>
 							</div>
 							<!--col-->
 
@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 							</div>
 
-							<img src="<?php echo base_url(); ?>assets/images/omgb-logo.png" alt="OMGB"/>
+							<img class="logoomgb" src="<?php echo base_url(); ?>assets/images/omgbEN.png" data-ar="<?php echo base_url(); ?>assets/images/omgbarabic.png" alt="OMGB"/>
 						</div>
 						<!--col-->
 
@@ -136,7 +136,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<h2 data-ar="ماذا تنتظر؟">What are you waiting for?</h2>
 
 								<p data-ar="ختر نقطة المغادرة واختر خمس صور من مجموعتنا الواردة أدناه والتي تعتقد أنها تبدو رائعة للحصول على فرصة للفوز">Choose your point of departure and pick five images from our selection below which you think look fabulous for a chance to win.</p>
-
 							</div>
 						</div>
 						<!--col-->
@@ -144,28 +143,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<!--col-->
 						<div class="col-xs-12 col-md-6 col">
 							<div class="omgblogo">
-								<img src="<?php echo base_url(); ?>assets/images/omgb-logo.png" alt="OMGB"/>
+								<img class="logoomgb" src="<?php echo base_url(); ?>assets/images/omgbEN.png" data-ar="<?php echo base_url(); ?>assets/images/omgbarabic.png" alt="OMGB"/>	
 							</div>
 						</div>
 						<!--col-->
-
-							
 
 						<!--col-->
 						<div class="col-xs-12 col-md-12 col selectionform">
 							
 							<form id="selectionForm" method="get" action="">
 							  <fieldset>
-							    <label for="flyingFrom">Step 2. <span data-ar="من أين ستقلع طائرتك؟">Where are you flying from?</span></label>
+							    <label for="flyingFrom"><span class="bold" data-ar="لخطوة 2">Step 2.</span> <span data-ar="من أين ستقلع طائرتك؟">Where are you flying from?</span></label>
 								<select id="flyingFrom" name="flyingFrom" data-type="select">
-									<option value="UK">UK</option>
-									<option value="Dubai">Dubai</option>
+									<option value="Doha" data-ar="Doha ar">Doha</option>
+									<option value="Dubai" data-ar="Dubai ar">Dubai</option>
+									<option value="Ras al Khaimah" data-ar="Ras al Khaimah ar">Ras al Khaimah</option>
+									<option value="Sharjah" data-ar="Sharjah ar">Sharjah</option>
+									<option value="Abu Dhabi" data-ar="Abu Dhabi ar">Dubai</option>
+									<option value="Kuwait City" data-ar="Kuwait City ar">Dubai</option>
 								</select>
 							    
-							    <label for="choosepictures">Step 3. <span data-ar="حدد 5 صور لفتح الرحلة المصممة خصيصاً لك.">Tick 5 images to unlock your tailor-made tour.</span></label>
+							    <label for="choosepictures"><span class="bold" data-ar="لخطوة 3">Step 3.</span> <span data-ar="حدد 5 صور لفتح الرحلة المصممة خصيصاً لك.">Tick 5 images to unlock your tailor-made tour.</span></label>
 
 							    <p class="selection"><span class="count">0</span> selected.<span class="error">You can not choose more than 5.</span></p>
-
 
 								<!-- Slider main container -->
 								<div class="swiper-container" data-type="swiper">
@@ -326,7 +326,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 											</div>
 
-
 								        </div>
 								    </div>
 								    
@@ -369,8 +368,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<!--col-->
 						<div class="col-xs-12 col-md-6 col">
 							<div class="omgblogo">
-								<img src="<?php echo base_url(); ?>assets/images/omgb-logo.png" alt="OMGB"/>
-							</div>
+								<img class="logoomgb" src="<?php echo base_url(); ?>assets/images/omgbEN.png" data-ar="<?php echo base_url(); ?>assets/images/omgbarabic.png" alt="OMGB"/></div>							
 						</div>
 						<!--col-->
 
@@ -378,7 +376,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="col-xs-12 col-md-12 col white">
 
 							<div class="sharingbox">
-								<h2>Step 4.</h2>
+								<h2 data-ar="لخطوة 4">Step 4.</h2>
 
 								<p data-ar="لق نظرة على أفضل التوصيات الخاصة بك وشاركها">Take a look at your top recommendations and share</p>
 							</div>
@@ -439,6 +437,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 							<h3 data-ar="ستكشف المزيد بشأن لحظاتك المُختارة">Discover more about your chosen moments</h3>
 
+							<p class="listingcopy">Fly in from <span class="flyingfrom">Abu Dhabi</span> to London</p>
+
 							<div class="list">
 
 								<!--row ,use as a section-->
@@ -492,11 +492,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<!--page3-->		
 
-
 			</div>
 			<!--root-->
-
-
 
 			<div class="bg">
 				<picture>
@@ -513,16 +510,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="container-fluid">
 					<!--row ,use as a section-->
 					<div class="row">
-
+					
 						<!--col-->
-						<div class="col-xs-2 col-md-2 col">
+						<div class="col-xs-4 col-md-2 col">
 							<img src="<?php echo base_url(); ?>assets/images/great-logo.png" alt="Great"/>
 						</div>
 						<!--col-->
 
 						<!--col-->
-						<div class="col-xs-2 col-md-2 pull-right col">
-							<img src="<?php echo base_url(); ?>assets/images/qatar-logo.png" alt="Qatar"/>
+						<div class="col-xs-6 col-md-2 pull-right col">
+							<img class="qatarlog" src="<?php echo base_url(); ?>assets/images/QatarEN.png" alt="Qatar"/>
 						</div>
 						<!--col-->
 
