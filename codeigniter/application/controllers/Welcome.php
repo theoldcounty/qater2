@@ -26,7 +26,8 @@ class Welcome extends CI_Controller {
 		$this->load->library('session');
 
         $newdata = array(
-		        'sessionId' => session_id()
+		        'sessionId' => session_id(),
+		        'lang'  => $lang
 		);
 		$this->session->set_userdata($newdata);
 		

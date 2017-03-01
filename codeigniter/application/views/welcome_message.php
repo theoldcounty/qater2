@@ -159,8 +159,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<option value="Dubai" data-ar="Dubai ar">Dubai</option>
 									<option value="Ras al Khaimah" data-ar="Ras al Khaimah ar">Ras al Khaimah</option>
 									<option value="Sharjah" data-ar="Sharjah ar">Sharjah</option>
-									<option value="Abu Dhabi" data-ar="Abu Dhabi ar">Dubai</option>
-									<option value="Kuwait City" data-ar="Kuwait City ar">Dubai</option>
+									<option value="Abu Dhabi" data-ar="Abu Dhabi ar">Abu Dhabi</option>
+									<option value="Kuwait City" data-ar="Kuwait City ar">Kuwait City</option>
 								</select>
 							    
 							    <label for="choosepictures"><span class="bold" data-ar="لخطوة 3">Step 3.</span> <span data-ar="حدد 5 صور لفتح الرحلة المصممة خصيصاً لك.">Tick 5 images to unlock your tailor-made tour.</span></label>
@@ -357,9 +357,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<!--col-->
 						<div class="col-xs-12 col-md-6 col infocontainer">
 							<div class="infowrap">
-								<h2 data-ar="رض الأوقات الرائعة">Your home of amazing moments</h2>
+								<!--<h2 data-ar="رض الأوقات الرائعة">Your home of amazing moments</h2>
 
-								<p data-ar="تعرف على المزيد بناءً على اختياراتك وشاركها مع أصدقائك للحصول على فرصة للفوز">Find out more based on your choices and share with your friends for a chance to win.</p>
+								<p data-ar="تعرف على المزيد بناءً على اختياراتك وشاركها مع أصدقائك للحصول على فرصة للفوز">Find out more based on your choices and share with your friends for a chance to win.</p>-->
+
+								<h2 data-ar="شكرًا لك!">Thank you</h2>
+
+								<p data-ar="لقد استلمنا مشاركتك. حظاً سعيداً!">We have received your entry. Good luck!</p>
+
+								<p data-ar="لق نظرة على أفضل التوصيات الخاصة بك وشاركه">Take a look at your top recommendations and share</p>
 
 							</div>
 						</div>
@@ -438,6 +444,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<h3 data-ar="ستكشف المزيد بشأن لحظاتك المُختارة">Discover more about your chosen moments</h3>
 
 							<p class="listingcopy">Fly in from <span class="flyingfrom">Abu Dhabi</span> to London</p>
+
+							<!--
+							<p data-ar="شكرًا لك!">Thank you</p>
+							<p data-ar="لقد استلمنا مشاركتك. حظاً سعيداً!">We have received your entry. Good luck!</p>
+							<p data-ar="ألق نظرة على أفضل التوصيات الخاصة بك وشاركها">Discover more about your chosen moments</p>
+							-->
 
 							<div class="list">
 

@@ -64,10 +64,13 @@ var app = {
 			listingHolder.append('<div class="row">'+$(rowTemplate).html()+'</div>');
 		});
 
+		var markers = new Array();
 		$('[data-type="markers"]').each(function(index) {
 			$(this).addClass($(this).data("size"));
 			$(this).css("left", $(this).data("pos-x")).css("top", $(this).data("pos-y")).css("z-index", index);
 		});
+
+		//if y pos is low e.g. 9 -- and has a zindex 2 -- and another market near has a higher y pos 15 and a lower index 1 -- readjust
 
 		function getRandomNumber(s, e){
 			return Math.floor(Math.random() * e) + s;

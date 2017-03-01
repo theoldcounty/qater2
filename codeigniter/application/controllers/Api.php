@@ -21,6 +21,8 @@ class Api extends CI_Controller {
 
 	public function index(){
 		echo "in api controller constructor";
+
+		$GLOBALS['data'] = array();
 	}
 
 	//en
@@ -41,6 +43,14 @@ class Api extends CI_Controller {
 			$this->db->where('sessionId',$id);
 			$this->db->update('register',$data);
 
+			$this->load->library('session');
+			$lang = $this->session->userdata('lang');
+			
+			$q = $this->db->get('register');
+			$ret = $q->result();
+			$GLOBALS['data'][] = $ret;
+			$GLOBALS['data'][] = $this->getListings($lang);
+
 			$this->sendEmail();//send an email
 		} else {
 			$this->db->set('sessionId', $id);
@@ -49,7 +59,7 @@ class Api extends CI_Controller {
 
 		$response = array(
 		    "register" => array(
-							    	"result" => $query
+							    	"result" => $q
 								)
 		);
 
@@ -60,7 +70,43 @@ class Api extends CI_Controller {
 
 
 	public function sendEmail(){
-		$to = 'rob.shan.lone@gmail.com';
+
+		$email = "";
+		$items = "";
+		$listings = "";
+
+		if(isset($GLOBALS)){
+			echo "<pre>";
+//				print_r($GLOBALS["data"]);
+				//print_r($GLOBALS["data"][0][0]->email);
+				//print_r($GLOBALS["data"][1]["listings"]);
+			echo "</pre>";
+
+			$email = $GLOBALS["data"][0][0]->email;
+			$items = $GLOBALS["data"][0][0]->items;
+
+			$listings = $GLOBALS["data"][1]["listings"];
+		}
+			
+			$items = explode(",", $items);
+
+
+			$listingsdescription = array_column($listings, 'description', 'id');
+			$listingsfulldescription = array_column($listings, 'fulldescription', 'id');
+			
+			$selectedItems = array();
+			foreach ($items as $value) {
+				$i = array(
+					"id" => $value,
+					"description" => $listingsdescription[$value],
+					"fulldescription" => $listingsfulldescription[$value],
+				);
+
+				$selectedItems[] = $i;
+			}
+
+
+		$to = $email;//'rob.shan.lone@gmail.com';
 		$subject = "Thanks for Entering the competition";
 
 		/*
@@ -136,18 +182,23 @@ class Api extends CI_Controller {
 						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_10.png" width="541" height="3" alt=""></td>
 					<td bgcolor="#662046">
 						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_11.png" width="29" height="3" alt=""></td>
-				</tr>
-				<tr>
-					<td colspan="6" bgcolor="#662046" style="color:#ffffff; font-size: 14px; line-height: 23px; font-family: tahoma, helvetica, sans serif; padding: 0 30px 0 30px;">
-					<br/>
-					<span style="font-size: 28px; font-weight: bold; line-height: 33px;">Curious countryside cottages - The Cotswolds</span>
-					<br/><br/>
-					Explore villages made of honey-coloured stone and see why this area is picture-postcard England at its most enchanting. It’s a favourite getaway for British celebrities so excellent food and luxury places to stay abound. Be sure to enjoy a picnic by the brook in Castle Combe, one of Britain’s prettiest villages.
-					<br/><br/>	
-						
-					</td>
-				</tr>
-				<tr>
+				</tr>';
+
+				foreach ($selectedItems as $val) {
+					$htmlContent +='<tr>
+						<td colspan="6" bgcolor="#662046" style="color:#ffffff; font-size: 14px; line-height: 23px; font-family: tahoma, helvetica, sans serif; padding: 0 30px 0 30px;">
+						<br/>
+						<span style="font-size: 28px; font-weight: bold; line-height: 33px;">'.$val["description"].'</span>
+						<br/><br/>
+						'.$val["fulldescription"].'
+						<br/><br/>	
+							
+						</td>
+					</tr>';					
+				}
+
+
+			$htmlContent +='<tr>
 					<td colspan="6">
 						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_13.png" width="600" height="73" alt=""></td>
 				</tr>
@@ -181,11 +232,13 @@ class Api extends CI_Controller {
 		//$headers .= 'Bcc: welcome2@example.com' . "\r\n";
 
 		// Send email
+		
 		if(mail($to,$subject,$htmlContent,$headers)):
 		    $successMsg = 'Email has sent successfully.';
 		else:
 		    $errorMsg = 'Email sending fail.';
 		endif;
+		
 
 	}
 
@@ -238,10 +291,11 @@ class Api extends CI_Controller {
 			 	"markerSize" => $row['markerSize']
 			);
 		}
-		
+
 		$response = array(
 			"listings" => $results
 		);
+
 
 		//if called directly print out the response
 		//if($this->is_called_via_master($this)){
