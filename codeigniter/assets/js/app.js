@@ -41,7 +41,7 @@ var app = {
 		markerHolder.empty();
 		$.each(data, function(key, value) {
 			$(markerTemplate).find('.coverimg img').attr("src", "assets/images/assets/square/"+key+".jpg");
-			$(markerTemplate).find('[data-type="curve"]').text(value["description"]);
+			$(markerTemplate).find('[data-type="curve"]').text(value["shortdescription"]);
 
 			//markerTemplate
 			markerHolder.append('<div class="marker" data-type="markers" data-size="'+value["markerSize"]+'" data-pos-x="'+value["posx"]+'%" data-pos-y="'+value["posy"]+'%" data-id="'+value["id"]+'">'+$(markerTemplate).html()+'</div>');

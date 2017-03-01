@@ -281,15 +281,18 @@ class Api extends CI_Controller {
 			if($lang == "ar"){
 				$description = $row['roll-over-description-arabic'];
 				$fulldescription = $row['full-description-arabic'];
+				$shortdescription = $row['short-description-arabic'];
 			}else{
 				$description = $row['roll-over-description-english'];
 				$fulldescription = $row['full-description-english'];
+				$shortdescription = $row['short-description-english'];
 			}
 
 			$results[] = array(
 			 	"id" => $id,
 			 	"description" => $description,
 			 	"fulldescription" => $fulldescription,
+			 	"shortdescription" => $shortdescription,
 			 	"location" => $row['location'],
 			 	"posx" => $row['posx'],
 			 	"posy" => $row['posy'],
