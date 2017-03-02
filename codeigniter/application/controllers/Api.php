@@ -244,7 +244,6 @@ class Api extends CI_Controller {
 		    $errorMsg = 'Email sending fail.';
 		endif;
 		
-
 	}
 
 
@@ -265,7 +264,6 @@ class Api extends CI_Controller {
 			GROUP BY `160812 - land registry avg soldprice jan 2010 - mar 2016`.Property,`160812 - land registry avg soldprice jan 2010 - mar 2016`.Year
 			ORDER BY
 			`160812 - land registry avg soldprice jan 2010 - mar 2016`.Property ASC";
-
 		*/
 
 		//$query = $this->db->query($sql, array("%".$postcode."%", $propertyshort, $year));

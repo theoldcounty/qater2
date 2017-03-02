@@ -40,7 +40,7 @@ var app = {
 		//empty old dom
 		markerHolder.empty();
 		$.each(data, function(key, value) {
-			$(markerTemplate).find('.coverimg img').attr("src", "assets/images/assets/square/"+key+".jpg");
+			$(markerTemplate).find('.coverimg img').attr("src", "assets/images/assets/square/"+value["id"]+".jpg");
 			$(markerTemplate).find('[data-type="curve"]').text(value["shortdescription"]);
 
 			//markerTemplate
@@ -55,7 +55,7 @@ var app = {
 		listingHolder.empty();
 
 		$.each(data, function(key, value) {
-			$(rowTemplate).find('.imgwrap img').attr("src", "assets/images/assets/landscape/"+key+".jpg");
+			$(rowTemplate).find('.imgwrap img').attr("src", "assets/images/assets/landscape/"+value["id"]+".jpg");
 			$(rowTemplate).find('h2').text(value["description"]);
 			$(rowTemplate).find('p').text(value["fulldescription"]);
 
@@ -237,6 +237,7 @@ var app = {
 		swiperHolder.empty();
 	  
 			$.each(data["listings"], function(key, val) {
+				console.log("key", key);
 				swiperHolder.append('<div class="grid-item unselected"><div class="tickholder"></div><div class="textholder">'+val.description+'</div><input type="checkbox" class="ids" name="items[]" value="'+key+'"><img src="assets/images/assets/landscape/'+key+'.jpg"/></div>');			
 			});
 
@@ -279,7 +280,7 @@ var app = {
 				that.bindEvents();
 			});
 			
-			$("#selectionForm").submit(function(){
+			$("#selectionForm").submit(function(event){
 				event.preventDefault();
 
 				var data = JSON.parse(JSON.stringify($(this).serializeObject()));
