@@ -65,9 +65,6 @@ var app = {
 		var topChoice = mode(locationArray);
 		//console.log("topChoice", topChoice);
 
-		//inbound
-		$('.listingresults .inbound').text(topChoice);
-
 		
 		//marker holder
 		var markerHolder = $('.markerholder');
@@ -83,9 +80,18 @@ var app = {
 			markerHolder.append('<div class="marker" data-type="markers" data-size="'+value["markerSize"]+'" data-pos-x="'+value["posx"]+'%" data-pos-y="'+value["posy"]+'%" data-id="'+value["id"]+'">'+$(markerTemplate).html()+'</div>');
 		});
 
+			var lang = $('body').data("lang");
+
 			var textForLondon = "Fly out from London";
-			if(topChoice == "London"){	
+			if(lang != "en"){
+				textForLondon = "رحلات الطيران إلى الخارج من لندن";
+			}
+
+			if(topChoice == "London"){
 				textForLondon = "Fly to and from London";
+				if(lang != "en"){
+					textForLondon = "رحلات الطيران إلى لندن ومنها";
+				}
 			}
 
 			//london marker
@@ -94,25 +100,28 @@ var app = {
 			$(markerTemplate).find('img.markerpointer').attr("src", "assets/images/marker-info.png");
 			markerHolder.append('<div class="marker info" data-type="markers" data-size="small" data-pos-x="75%" data-pos-y="60%" data-id="x">'+$(markerTemplate).html()+'</div>');
 		
-
 			var locales = [
 					{
 						"location" : "Birmingham",
+						"arabic" : "برمنجهام",
 						"posx" : "45%",
 						"posy" : "50%"
 					},
 					{
 						"location" : "Edingburgh",
-						"posx" : "29%",
-						"posy" : "0%"
+						"arabic" : "إدنبره",
+						"posx" : "41%",
+						"posy" : "9%"
 					},
 					{
 						"location" : "Manchester",
+						"arabic" : "مانشستر",
 						"posx" : "54%",
 						"posy" : "32%"
 					},
 					{
 						"location" : "London",
+						"arabic" : "لندن",
 						"posx" : "75%",
 						"posy" : "60%"
 					}
@@ -127,12 +136,25 @@ var app = {
 				//console.log("selection", selection);
 				
 				if(topChoice != "London"){		
+					var flyIntoText = "Fly into";
+					if(lang != "en"){
+						flyIntoText = "رحلة الطيران إلى";
+							//console.log("topChoice", topChoice);
+							//console.log("selection", selection);
+						topChoice = selection["arabic"];
+						//console.log("topChoice", topChoice);
+					}
+
 					//other marker
 					$(markerTemplate).find('.coverimg').remove();
-					$(markerTemplate).find('[data-type="curve"]').text("Fly into "+ topChoice);
+					$(markerTemplate).find('[data-type="curve"]').text(flyIntoText + " " + topChoice);
 					$(markerTemplate).find('img.markerpointer').attr("src", "assets/images/marker-info.png");
 					markerHolder.append('<div class="marker info" data-type="markers" data-size="small" data-pos-x="'+selection["posx"]+'" data-pos-y="'+selection["posy"]+'" data-id="x">'+$(markerTemplate).html()+'</div>');
 				}
+
+				//inbound
+				$('.listingresults .inbound').text(topChoice);
+
 
 		//listing holder
 		var listingHolder = $('.listingresults .list');
@@ -345,15 +367,28 @@ var app = {
 
 		if(this.lang == "ar"){
 			//swap to arabic text
-			//data-ar
 
 			$('[data-ar]').each(function(index) {
 				var arabicText = $(this).data("ar");
-				//console.log("arabic text", arabicText);
 				$(this).text(arabicText);
 				$(this).val(arabicText);
+			});
+
+			$('img[data-ar]').each(function(index) {
+				var arabicText = $(this).data("ar");
 				$(this).attr("src",arabicText);
 			});
+			
+			/*
+			$('.twitter-share-button').each(function(index) {
+				var arabicText = $(this).data("ar");
+				$(this).data("text",arabicText);
+			});
+
+			$('meta[data-ar]').each(function(index) {
+				var arabicText = $(this).data("ar");
+				$(this).attr("content",arabicText);
+			});*/
 		}
 
 		that.togglePage("#page1");
@@ -385,6 +420,7 @@ var app = {
 				}).get();
 
 				$('.flyingfrom').text(data["flyingFrom"]);
+				$('.listingresults .outbound').text(data["flyingFrom"]);
 
 				that.togglePage("#page3");
 				that.mapHandler(choices);
@@ -430,6 +466,9 @@ var app = {
 				var axel = Math.random() + "";
 				var a = axel * 10000000000000;
 				$('body').append('<img src="https://ad.doubleclick.net/ddm/activity/src=2673654;type=visibrit;cat=vbdisbhp;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1;num=' + a + '?" width="1" height="1" alt=""/>');
+				
+				$('body').append('<img src="https://ads.undertone.com/t?trackerid=6183&cb=[INSERT_YOUR_CACHE-BUSTER_HERE]" style="display: none;" width="0" height="0" alt="" />');
+
 				break;		        
 		    case "#page2":
 		        //

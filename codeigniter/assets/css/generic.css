@@ -191,7 +191,6 @@
 		font-family: 'jotiabold';
 	}
 
-
 	select{		
 		width: 100%;
 	}
@@ -500,6 +499,14 @@
 		margin-left: -20%;
 	}
 
+	.fb-share-button,
+	.twitter-share-button{
+		display: block!important;
+		margin-bottom: 5px;
+		text-align: left;
+	}
+
+
 	@media screen and (min-width: 768px) {
 
 		h2{
@@ -537,6 +544,8 @@
 
 		[data-type="curve"] text{
 			display: block;
+			font-family: 'jotiaregular';
+			font-weight: bold;
 		}
 
 		.map{
@@ -629,6 +638,11 @@
 			bottom: 12px;
 			left: 34px;
 		}
+
+		.info.marker.small [data-type="curve"] text{
+			fill: #e41f13;
+		}
+
 	}
 
 	@media screen and (min-width: 1400px) {

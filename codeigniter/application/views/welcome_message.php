@@ -6,8 +6,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	    <meta property="og:title" content="Facebook Open Graph META Tags"/>
-		<meta property="og:image" content="https://davidwalsh.name/wp-content/themes/klass/img/facebooklogo.png"/>
+		<?php
+		if($lang == "en"){
+			?>
+			<meta property="og:url" content="http://www.discoverbritainnow.com/en" />
+			<meta property="og:type" content="article" />
+			<meta property="og:title" content="Discover and share your favourite OMGB moments!" />
+			<meta property="og:description" content=".Win a trip to the UK with VisitBritain and Qatar Airways when you sign up to our newsletter. Terms and conditions apply" />
+			<meta property="og:image" content="http://discoverbritainnow.com/assets/images/assets/landscape/8.jpg" />
+			<?php
+		}else{
+			?>
+			<meta property="og:url" content="http://www.discoverbritainnow.com/ar" />
+			<meta property="og:type" content="article" />
+			<meta property="og:title" content="لقد اكتشفت للتو لحظاتي المفضلة في بريطانيا! ماذا عن لحظاتك أنت؟" />
+			<meta property="og:description" content="لا تفوت فرصة الفوز برحلة إلى المملكة المتحدة مع فيزيت بريتن والخطوط الجوية القطرية عند الاشتراك في نشرتنا الإخبارية.
+			  المفضلة لديك! تُطبق الشروط والأحكام.OMGB اكتشف وشارك لحظات" />
+			<meta property="og:image" content="http://discoverbritainnow.com/assets/images/assets/landscape/8.jpg" />
+			<?php	
+		}
+		?>
+
 
 	    <title data-ar="نص البريد ا لكتروني - نهائي">Win a trip to the Uk and discover the home of amazing moments with Qatar Airways.</title>
 
@@ -172,51 +191,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							    
 							    <label for="choosepictures"><span class="bold" data-ar="لخطوة 3">Step 3.</span> <span data-ar="حدد 5 صور لفتح الرحلة المصممة خصيصاً لك.">Tick 5 images to unlock your tailor-made tour.</span></label>
 
-							    <p class="selection"><span class="count">0</span> selected.<span class="error">You can not choose more than 5.</span></p>
+ 
+							    <p class="selection"><span class="count">0</span> <span data-ar="لقد حددتم">selected</span>.<span class="error" data-ar="لا يمكنك اختيار أكثر من ٥.">You can not choose more than 5.</span></p>
 
 								<!-- Slider main container -->
 								<div class="swiper-container" data-type="swiper">
 								    <!-- Additional required wrapper -->
 								    <div class="swiper-wrapper">
 								        <!-- Slides -->
+								        <!--
 								        <div class="swiper-slide">
 									       <div class="grid2" data-type="packery">
-
 												<div class="grid-item unselected">
 													<input type="checkbox" class="ids" name="items[]" value="1"/>
 													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
 												</div>
-
-
 											</div>
 								        </div>
-								        <div class="swiper-slide">
-								        	
-											<div class="grid1" data-type="packery">
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="10"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-
-											</div>
-
-								        </div>
-								        <div class="swiper-slide">
-
-
-											<div class="grid3" data-type="packery">
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="19"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-
-											</div>
-
-								        </div>
+								        -->
 								    </div>
 								    
 								    <!-- If we need navigation buttons -->
@@ -273,6 +265,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 							<div class="sharingbox">
 								<h4 data-ar="لخطوة 4"><span class="bold">Step 4.</span> <span data-ar="لق نظرة على أفضل التوصيات الخاصة بك وشاركها">Take a look at your top recommendations and share</span></h4>
+
+								<?php
+									if($lang == "en"){
+										?>
+										<div class="fb-share-button" data-href="http://www.discoverbritainnow.com/en" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.discoverbritainnow.com%2Fen&amp;src=sdkpreparse">Share</a></div>
+
+										<a class="twitter-share-button"
+											href="https://twitter.com/intent/tweet"
+											data-text="I’ve just discovered my favourite British moments. What are yours?"
+											data-url="http://www.discoverbritainnow.com/en"
+											data-via="VisitBritain"
+											data-hashtags=""
+											data-size="large">
+										Tweet</a>
+										<?php
+									}else{
+										?>
+										<div class="fb-share-button" data-href="http://www.discoverbritainnow.com/ar" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.discoverbritainnow.com%2Far&amp;src=sdkpreparse">Share</a></div>
+
+										<a class="twitter-share-button"
+											href="https://twitter.com/intent/tweet"
+											data-text="لقد اكتشفت للتو لحظاتي المفضلة في بريطانيا! ماذا عن لحظاتك أنت؟"
+											data-url="http://www.discoverbritainnow.com/ar"
+											data-via="VisitBritain"
+											data-hashtags=""
+											data-size="large">
+										Tweet</a>
+										<?php
+									}
+								?>
+						
 							</div>
 
 							<div class="mapwrap">
@@ -331,7 +354,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 							<h3 data-ar="ستكشف المزيد بشأن لحظاتك المُختارة">Discover more about your chosen moments</h3>
 
-							<p class="destinations">Fly out from London to <span class="inbound">Edingburgh</span></p>
+							<p class="destinations"><span data-ar="رحلات الطيران إلى الخارج من">Fly out from</span> <span class="outbound">Dubai</span> <span data-ar="لى">to</span> <span class="inbound">Edingburgh</span></p>
 
 
 							<!--
@@ -436,6 +459,34 @@ Let me know your thoughts / if this doesn't make sense.
 			</div>
 
 		</footer>
+
+
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1984780878410642";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
 	
+		  <script>window.twttr = (function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0],
+		    t = window.twttr || {};
+		  if (d.getElementById(id)) return t;
+		  js = d.createElement(s);
+		  js.id = id;
+		  js.src = "https://platform.twitter.com/widgets.js";
+		  fjs.parentNode.insertBefore(js, fjs);
+
+		  t._e = [];
+		  t.ready = function(f) {
+		    t._e.push(f);
+		  };
+
+		  return t;
+		}(document, "script", "twitter-wjs"));</script>
+
 	</body>
 </html>
