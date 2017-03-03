@@ -6,7 +6,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	    <title>Inflecto</title>
+	    <meta property="og:title" content="Facebook Open Graph META Tags"/>
+		<meta property="og:image" content="https://davidwalsh.name/wp-content/themes/klass/img/facebooklogo.png"/>
+
+	    <title data-ar="نص البريد ا لكتروني - نهائي">Win a trip to the Uk and discover the home of amazing moments with Qatar Airways.</title>
 
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -106,10 +109,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label for="email" data-ar="لبريد الإلكتروني">Email</label>
 							    <input type="text" id="email" name="email" value="">
 							   
-							    <label class="termsBT" for="termsBT" data-ar="x">I agree to the Visit Britain Terms and Conditions</label>
+							    <label class="termsBT" for="termsBT" data-ar="وافق على شروط وأحكام Visit Britain.">I agree to the Visit Britain Terms and Conditions</label>
 							    <input type="checkbox" id="termsBT" name="termsBT" value="1">
 
-							    <label  class="termsQAT" for="termsQAT" data-ar="x">I agree to the Qatar Airways Terms and Conditions</label>
+							    <label  class="termsQAT" for="termsQAT" data-ar="وافق على شروط وأحكام الخطوط الجوية القطرية.">I agree to the Qatar Airways Terms and Conditions</label>
 							    <input type="checkbox" id="termsQAT" name="termsQAT" value="1">
 
 							    <input type="submit" data-ar="لخطوة التالية" value="Next Step >">
@@ -155,13 +158,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							  <fieldset>
 							    <label for="flyingFrom"><span class="bold" data-ar="لخطوة 2">Step 2.</span> <span data-ar="من أين ستقلع طائرتك؟">Where are you flying from?</span></label>
 								<select id="flyingFrom" name="flyingFrom" data-type="select">
-									<option value="Doha" data-ar="Doha ar">Doha</option>
-									<option value="Dubai" data-ar="Dubai ar">Dubai</option>
-									<option value="Ras al Khaimah" data-ar="Ras al Khaimah ar">Ras al Khaimah</option>
-									<option value="Sharjah" data-ar="Sharjah ar">Sharjah</option>
-									<option value="Abu Dhabi" data-ar="Abu Dhabi ar">Abu Dhabi</option>
-									<option value="Kuwait City" data-ar="Kuwait City ar">Kuwait City</option>
+									<option value="Jeddah" data-ar="جدة">Jeddah</option>
+									<option value="Dammam" data-ar="لدمام">Dammam</option>
+									<option value="Riyadh" data-ar="لرياض">Riyadh</option>
+									<option value="Kuwait City" data-ar="مدينة الكويت">Kuwait City</option>
+									<option value="Dubai" data-ar="دبي">Dubai</option>
+									<option value="Sharjah" data-ar="لشارقة">Sharjah</option>
+									<option value="Ras Al Khaima" data-ar="رأس الخيمة">Ras Al Khaima</option>
+									<option value="Abu Dhabi" data-ar="بوظبي">Abu Dhabi</option>
 								</select>
+
+								<input type="hidden" name="language" value="<?php echo $lang;?>">
 							    
 							    <label for="choosepictures"><span class="bold" data-ar="لخطوة 3">Step 3.</span> <span data-ar="حدد 5 صور لفتح الرحلة المصممة خصيصاً لك.">Tick 5 images to unlock your tailor-made tour.</span></label>
 
@@ -180,45 +187,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
 												</div>
 
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="2"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="3"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="4"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="5"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="6"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="7"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="8"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="9"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
 
 											</div>
 								        </div>
@@ -231,45 +199,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
 												</div>
 
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="11"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="12"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="13"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="14"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="15"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="16"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="17"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="18"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
 
 											</div>
 
@@ -284,45 +213,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
 												</div>
 
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="20"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="21"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="22"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="23"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="24"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="25"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="26"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
-
-												<div class="grid-item unselected">
-													<input type="checkbox" class="ids" name="items[]" value="27"/>
-													<img src="https://lumiere-a.akamaihd.net/v1/images/image_ccc4b657.jpeg"/>
-												</div>
 
 											</div>
 
@@ -382,9 +272,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="col-xs-12 col-md-12 col white">
 
 							<div class="sharingbox">
-								<h2 data-ar="لخطوة 4">Step 4.</h2>
-
-								<p data-ar="لق نظرة على أفضل التوصيات الخاصة بك وشاركها">Take a look at your top recommendations and share</p>
+								<h4 data-ar="لخطوة 4"><span class="bold">Step 4.</span> <span data-ar="لق نظرة على أفضل التوصيات الخاصة بك وشاركها">Take a look at your top recommendations and share</span></h4>
 							</div>
 
 							<div class="mapwrap">
@@ -443,13 +331,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 							<h3 data-ar="ستكشف المزيد بشأن لحظاتك المُختارة">Discover more about your chosen moments</h3>
 
-							<!--
-							<p class="listingcopy">Fly in from <span class="flyingfrom">Abu Dhabi</span> to London</p>-->
+							<p class="destinations">Fly out from London to <span class="inbound">Edingburgh</span></p>
+
 
 							<!--
-							<p data-ar="شكرًا لك!">Thank you</p>
-							<p data-ar="لقد استلمنا مشاركتك. حظاً سعيداً!">We have received your entry. Good luck!</p>
-							<p data-ar="ألق نظرة على أفضل التوصيات الخاصة بك وشاركها">Discover more about your chosen moments</p>
+The final Aspect on the map is the in-bound / out-bound map markers.
+
+The out-bound marker will always be london. "fly from London"
+
+The in-bound will be defined by how many locations you pick in each area out of 5. For example if you pick 3 from Birmingham and 2 from edinburgh the "fly into Birmingham" marker will appear on the map. The marker images can be grabbed from the already existing ones in the database
+
+The one issue which we have addressed to the client is if the users pick 2 - 2 -1, so for example 2 for london 2 for Edniburgh and 1 for Manchester. In which case we will have to decide that some locations always take priority over others. I would like to include the the fly-in location at the start of the pruple itinerary below as well. So before the 1st location have a line "Fly to xxxxx from Dubai" for example.
+
+Let me know your thoughts / if this doesn't make sense.
+
 							-->
 
 							<div class="list">
@@ -466,7 +361,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<!--col-->
 									<!--col-->
 									<div class="col-xs-12 col-md-6 col">
-										<h2>Fly to Edinburgh</h2>
+										<h4>Fly to Edinburgh</h4>
 
 										<p>Get lost in the cobbled alleyways of the Old Town, admire the Georgian splendour of the New Town and climb Calton Hill for outstanding views across the city. One of the best times to visit is during summer when the enormous Edinburgh Festival is at its peak.</p>
 									</div>
@@ -487,7 +382,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<!--col-->
 									<!--col-->
 									<div class="col-xs-12 col-md-6 col">
-										<h2>Fly to Edinburgh</h2>
+										<h4>Fly to Edinburgh</h4>
 
 										<p>Get lost in the cobbled alleyways of the Old Town, admire the Georgian splendour of the New Town and climb Calton Hill for outstanding views across the city. One of the best times to visit is during summer when the enormous Edinburgh Festival is at its peak.</p>
 									</div>

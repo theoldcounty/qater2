@@ -43,15 +43,18 @@ class Api extends CI_Controller {
 			$this->db->where('sessionId',$id);
 			$this->db->update('register',$data);
 
-			$this->load->library('session');
-			$lang = $this->session->userdata('lang');
+			//$this->load->library('session');
+			//$lang = $this->session->userdata('lang');
+
+			//print_r($lang);
+			$lang = $data['language'];
 			
 			$q = $this->db->get('register');
 			$ret = $q->result();
 			$GLOBALS['data'][] = $ret;
 			$GLOBALS['data'][] = $this->getListings($lang);
 
-			$this->sendEmail();//send an email
+			$this->sendEmail($lang);//send an email
 		} else {
 			$this->db->set('sessionId', $id);
 			$this->db->insert('register',$data);
@@ -69,72 +72,64 @@ class Api extends CI_Controller {
 	}
 
 
-	public function sendEmail(){
+	public function sendEmail($lang){
 
 		$email = "";
 		$items = "";
 		$listings = "";
-		$firstname = "";
 
 		if(isset($GLOBALS)){
-			//echo "<pre>";
-//				print_r($GLOBALS["data"]);
-				//print_r($GLOBALS["data"][0][0]->email);
-				//print_r($GLOBALS["data"][1]["listings"]);
-			//echo "</pre>";
-
 			$email = $GLOBALS["data"][0][0]->email;
 			$items = $GLOBALS["data"][0][0]->items;
-			$firstname = $GLOBALS["data"][0][0]->firstName;
 
 			$listings = $GLOBALS["data"][1]["listings"];
 		}
 			
-			$items = explode(",", $items);
+		$items = explode(",", $items);
 
-			$listingsdescription = array_column($listings, 'description', 'id');
-			$listingsfulldescription = array_column($listings, 'fulldescription', 'id');
-			
-			$selectedItems = array();
-			foreach ($items as $value) {
-				$i = array(
-					"id" => $value,
-					"description" => $listingsdescription[$value],
-					"fulldescription" => $listingsfulldescription[$value],
-				);
+		$listingsdescription = array_column($listings, 'description', 'id');
+		$listingsfulldescription = array_column($listings, 'fulldescription', 'id');
+		
+		$selectedItems = array();
+		foreach ($items as $value) {
+			$i = array(
+				"id" => $value,
+				"description" => $listingsdescription[$value],
+				"fulldescription" => $listingsfulldescription[$value],
+			);
 
-				$selectedItems[] = $i;
-			}
+			$selectedItems[] = $i;
+		}
+
+		$emailText = array(
+			"en" => array(
+				"title" => "Thankyou for registering with Visit Britain & Qatar Airways",
+				"thankyou" => "Thankyou for registering with Visit Britain & Qatar Airways",
+				"bodytext" => "Thanks for signing up to our newsletters.<br/>
+						<br/>
+						You’re now in the running to win an exclusive trip to the UK.
+						<br/>
+						Here are your chosen moments but don’t forget to check out<br/>
+						<a href=\"http://www.visitbritain.com/omgbme\" style=\"text-decoration: underline; font-weight: bold; color: #454545;\">visitbritain.com/omgbme</a> to discover more unique #OMGB experiences."
+			),
+			"ar" => array(
+				"title" => "نشكرك على الاشتراك في رسائلنا الإخبارية.",
+				"thankyou" => "نشكرك على الاشتراك في رسائلنا الإخبارية.",
+				"bodytext" => "نشكرك على الاشتراك في رسائلنا الإخبارية.<br/>
+									<br/>
+									 من المتوقع أن تفوز الآن برحلة حصرية إلى المملكة المتحدة.<br/>
+									<br/>
+						هنا لحظاتك المختارة، لكن لا تنس زيارة وتصفح الموقع الإلكتروني <a href=\"http://en.omgb.com/\" style=\"text-decoration: underline; font-weight: bold; color: #454545;\">visitbritain.com/omgbme<a/> من أجل استكشاف المزيد من التجارب الرائعة على هاشتاج #OMGB.<br/>"
+			)
+		);
 
 		$to = $email;//'rob.shan.lone@gmail.com';
 		$subject = "Thanks for Entering the competition";
 
-		/*
-		$htmlContent = '
-		    <html>
-		    <head>
-		        <title>Welcome to CodexWorld</title>
-		    </head>
-		    <body>
-		        <h1>Thanks you for joining with us!</h1>
-		        <table cellspacing="0" style="border: 2px dashed #FB4314; width: 300px; height: 200px;">
-		            <tr>
-		                <th>Name:</th><td>CodexWorld</td>
-		            </tr>
-		            <tr style="background-color: #e0e0e0;">
-		                <th>Email:</th><td>contact@codexworld.com</td>
-		            </tr>
-		            <tr>
-		                <th>Website:</th><td><a href="http://www.codexworld.com">www.codexworld.com</a></td>
-		            </tr>
-		        </table>
-		    </body>
-		    </html>';*/
-
 		$htmlContent ='
 			<html>
 			<head>
-			<title>Thankyou for registering with Visit Britain & Qatar Airways</title>
+			<title>'.$emailText[$lang]["title"].'</title>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 			</head>
 			<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -142,46 +137,40 @@ class Api extends CI_Controller {
 			<table id="Table_01" width="600" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
 				<tr>
 					<td colspan="5" width="600" height="44" style="font-size: 14px; font-family: tahoma, helvetica, sans serif; color: #662046; text-align: center;">
-					Thankyou for registering with Visit Britain & Qatar Airways
+					'.$emailText[$lang]["thankyou"].'
 					</td>
 				</tr>
 				<tr bgcolor="#662046">
 					<td colspan="6" bgcolor="#662046">
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_02.png" width="600" height="73" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/email_template_02.png" width="600" height="73" alt=""></td>
 				</tr>
 				<tr bgcolor="#662046">
 					<td colspan="6" bgcolor="#662046">
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_03.jpg" width="600" height="202" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/email_template_03.jpg" width="600" height="202" alt=""></td>
 				</tr>
 				<tr>
 					<td colspan="3">
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_04.png" width="33" height="216" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/email_template_04.png" width="33" height="216" alt=""></td>
 					<td style="color: #454545; font-size: 16px; text-align: left; font-family: tahoma, helvetica, sans serif; line-height: 20px;">
-					Thanks '.$firstname.' for signing up to our newsletter.<br/>
-						<br/>
-						You’re now in the running to win an exclusive trip to the UK courtsey of<br/>
-						Qatar Airlines and Visit Britain.<br/>
-						<br/>
-						Here are your chosen moments but don’t forget to check out<br/>
-						<a href="http://en.omgb.com/" style="text-decoration: underline; font-weight: bold; color: #454545;">VisitBritain.com</a> to discover more unique OMGB experiences.
+					'.$emailText[$lang]["bodytext"].'
 					
 					</td>
 					<td colspan="2">
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_06.png" width="33" height="216" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/email_template_06.png" width="33" height="216" alt=""></td>
 				</tr>
 				<tr bgcolor="#662046">
 					<td colspan="6" bgcolor="#662046">
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_07.png" width="600" height="99" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/email_template_07.png" width="600" height="99" alt=""></td>
 				</tr>
 				<tr bgcolor="#662046">
 					<td bgcolor="#662046">
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_08.png" width="1" height="3" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/email_template_08.png" width="1" height="3" alt=""></td>
 					<td bgcolor="#662046">
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_09.png" width="29" height="3" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/email_template_09.png" width="29" height="3" alt=""></td>
 					<td bgcolor="#662046" colspan="3">
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_10.png" width="541" height="3" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/email_template_10.png" width="541" height="3" alt=""></td>
 					<td bgcolor="#662046">
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_11.png" width="29" height="3" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/email_template_11.png" width="29" height="3" alt=""></td>
 				</tr>';
 
 			foreach ($selectedItems as $val) {
@@ -197,29 +186,23 @@ class Api extends CI_Controller {
 				</tr>';				
 			}
 
-			/*
-
-					<img src="http://discoverbritainnow.com/assets/images/assets/square/'.$val["id"].'.jpg" width="100px">
-			*/
-
-
 			$htmlContent .='<tr>
 					<td colspan="6">
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/email_template_13.png" width="600" height="73" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/email_template_13.png" width="600" height="73" alt=""></td>
 				</tr>
 				<tr>
 					<td>
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/spacer.gif" width="1" height="1" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/spacer.gif" width="1" height="1" alt=""></td>
 					<td>
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/spacer.gif" width="29" height="1" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/spacer.gif" width="29" height="1" alt=""></td>
 					<td>
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/spacer.gif" width="3" height="1" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/spacer.gif" width="3" height="1" alt=""></td>
 					<td>
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/spacer.gif" width="534" height="1" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/spacer.gif" width="534" height="1" alt=""></td>
 					<td>
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/spacer.gif" width="4" height="1" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/spacer.gif" width="4" height="1" alt=""></td>
 					<td>
-						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/en/spacer.gif" width="29" height="1" alt=""></td>
+						<img src="http://www.inflectordct.com/email/visit_britain/qatar/confirmation/'.$lang.'/spacer.gif" width="29" height="1" alt=""></td>
 				</tr>
 			</table>
 			<!-- End Save for Web Slices -->
@@ -251,7 +234,7 @@ class Api extends CI_Controller {
 		 
 		$this->load->database();
 	
-		$sql = "SELECT * FROM listings ORDER BY markerSize ASC";
+		$sql = "SELECT * FROM listings ORDER BY weighting ASC";
 
 		/*	
 		$sql = "SELECT 

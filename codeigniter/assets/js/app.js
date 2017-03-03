@@ -32,6 +32,42 @@ var app = {
 	mapHandler: function(choices){
 		//'.listingresults row'
 		var data = this.getSelections(choices);
+		//console.log("data", data);
+
+		var locationArray = new Array();
+		$.each(data, function(index, value) {
+			locationArray.push(value.location);
+		});
+		//console.log("locationArray", locationArray);
+
+		function mode(array)
+		{
+		    if(array.length == 0)
+		        return null;
+		    var modeMap = {};
+		    var maxEl = array[0], maxCount = 1;
+		    for(var i = 0; i < array.length; i++)
+		    {
+		        var el = array[i];
+		        if(modeMap[el] == null)
+		            modeMap[el] = 1;
+		        else
+		            modeMap[el]++;  
+		        if(modeMap[el] > maxCount)
+		        {
+		            maxEl = el;
+		            maxCount = modeMap[el];
+		        }
+		    }
+		    return maxEl;
+		}
+
+		var topChoice = mode(locationArray);
+		//console.log("topChoice", topChoice);
+
+		//inbound
+		$('.listingresults .inbound').text(topChoice);
+
 		
 		//marker holder
 		var markerHolder = $('.markerholder');
@@ -47,6 +83,57 @@ var app = {
 			markerHolder.append('<div class="marker" data-type="markers" data-size="'+value["markerSize"]+'" data-pos-x="'+value["posx"]+'%" data-pos-y="'+value["posy"]+'%" data-id="'+value["id"]+'">'+$(markerTemplate).html()+'</div>');
 		});
 
+			var textForLondon = "Fly out from London";
+			if(topChoice == "London"){	
+				textForLondon = "Fly to and from London";
+			}
+
+			//london marker
+			$(markerTemplate).find('.coverimg').remove();
+			$(markerTemplate).find('[data-type="curve"]').text(textForLondon);
+			$(markerTemplate).find('img.markerpointer').attr("src", "assets/images/marker-info.png");
+			markerHolder.append('<div class="marker info" data-type="markers" data-size="small" data-pos-x="75%" data-pos-y="60%" data-id="x">'+$(markerTemplate).html()+'</div>');
+		
+
+			var locales = [
+					{
+						"location" : "Birmingham",
+						"posx" : "45%",
+						"posy" : "50%"
+					},
+					{
+						"location" : "Edingburgh",
+						"posx" : "29%",
+						"posy" : "0%"
+					},
+					{
+						"location" : "Manchester",
+						"posx" : "54%",
+						"posy" : "32%"
+					},
+					{
+						"location" : "London",
+						"posx" : "75%",
+						"posy" : "60%"
+					}
+				];		
+
+				var selection = "";
+				$.each(locales, function(key, value) {
+					if(value.location == topChoice){
+						selection = value;
+					}
+				});
+				//console.log("selection", selection);
+				
+				if(topChoice != "London"){		
+					//other marker
+					$(markerTemplate).find('.coverimg').remove();
+					$(markerTemplate).find('[data-type="curve"]').text("Fly into "+ topChoice);
+					$(markerTemplate).find('img.markerpointer').attr("src", "assets/images/marker-info.png");
+					markerHolder.append('<div class="marker info" data-type="markers" data-size="small" data-pos-x="'+selection["posx"]+'" data-pos-y="'+selection["posy"]+'" data-id="x">'+$(markerTemplate).html()+'</div>');
+				}
+
 		//listing holder
 		var listingHolder = $('.listingresults .list');
 		var	rowTemplate = listingHolder.find('.row').eq(0).clone(true);
@@ -56,7 +143,7 @@ var app = {
 
 		$.each(data, function(key, value) {
 			$(rowTemplate).find('.imgwrap img').attr("src", "assets/images/assets/landscape/"+value["id"]+".jpg");
-			$(rowTemplate).find('h2').text(value["description"]);
+			$(rowTemplate).find('h4').text(value["description"]);
 			$(rowTemplate).find('p').text(value["fulldescription"]);
 
 			//console.log("value", value);
@@ -120,7 +207,7 @@ var app = {
 		}
 
 		$('[data-type="curve"]').each(function(index) {
-			curveme(this,index);
+			curveme(this, index);
 		});
 	},
 	count:0,
@@ -237,8 +324,8 @@ var app = {
 		swiperHolder.empty();
 	  
 			$.each(data["listings"], function(key, val) {
-				console.log("key", key);
-				swiperHolder.append('<div class="grid-item unselected"><div class="tickholder"></div><div class="textholder">'+val.description+'</div><input type="checkbox" class="ids" name="items[]" value="'+key+'"><img src="assets/images/assets/landscape/'+key+'.jpg"/></div>');			
+				//console.log("key", key);
+				swiperHolder.append('<div class="grid-item unselected"><div class="tickholder"></div><div class="textholder">'+val.description+'</div><input type="checkbox" class="ids" name="items[]" value="'+val.id+'"><img src="assets/images/assets/landscape/'+val.id+'.jpg"/></div>');			
 			});
 
 			var a = $('.selectionform .swiper-wrapper > div');
@@ -335,7 +422,38 @@ var app = {
 			}
 		});
 	},
+	fireEvent: function(page){
+		switch(page) {
+		    case "#page1":
+		        //
+				//Activity name of this tag: IPRO - VB - Discover Britain - Home Page
+				var axel = Math.random() + "";
+				var a = axel * 10000000000000;
+				$('body').append('<img src="https://ad.doubleclick.net/ddm/activity/src=2673654;type=visibrit;cat=vbdisbhp;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1;num=' + a + '?" width="1" height="1" alt=""/>');
+				break;		        
+		    case "#page2":
+		        //
+				//Activity name of this tag: IPRO - VB - Discover Britain - Game Page
+				var axel = Math.random() + "";
+				var a = axel * 10000000000000;
+				$('body').append('<img src="https://ad.doubleclick.net/ddm/activity/src=2673654;type=visibrit;cat=vbdisbgp;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1;num=' + a + '?" width="1" height="1" alt=""/>');
+				
+				$('body').append('<img src="http://inflectomtrack.net/p.ashx?o=1690&e=263&f=img&t=TRANSACTION_ID" width="1" height="1" border="0" />');
+		        $('body').append('<img src="http://inflectomtrack.net/p.ashx?o=1691&e=263&f=img&t=TRANSACTION_ID" width="1" height="1" border="0" />');
+		        $('body').append('<img src="http://inflectomtrack.net/p.ashx?o=1692&e=263&f=img&t=TRANSACTION_ID" width="1" height="1" border="0" />');
+		        
+		        break;
+		    case "#page3":
+		        //
+				//Activity name of this tag: IPRO - VB - Discover Britain - Sign Up Page
+				var axel = Math.random() + "";
+				var a = axel * 10000000000000;
+				$('body').append('<img src="https://ad.doubleclick.net/ddm/activity/src=2673654;type=visibrit;cat=vbdisbsu;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1;num=' + a + '?" width="1" height="1" alt=""/>');
+				break;
+		}
+	},
 	togglePage: function(page){
+		this.fireEvent(page);
 		$(".pages").hide();
 		$(page).fadeIn(400);
 	}
