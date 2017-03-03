@@ -104,20 +104,20 @@ var app = {
 					{
 						"location" : "Birmingham",
 						"arabic" : "برمنجهام",
-						"posx" : "45%",
-						"posy" : "50%"
+						"posx" : "57%",
+						"posy" : "51%"
 					},
 					{
 						"location" : "Edingburgh",
-						"arabic" : "إدنبره",
+						"arabic" : "دنبره",
 						"posx" : "41%",
 						"posy" : "9%"
 					},
 					{
 						"location" : "Manchester",
 						"arabic" : "مانشستر",
-						"posx" : "54%",
-						"posy" : "32%"
+						"posx" : "56%",
+						"posy" : "40%"
 					},
 					{
 						"location" : "London",
@@ -408,6 +408,12 @@ var app = {
 				var data = JSON.parse(JSON.stringify($(this).serializeObject()));
 				
 				var items = data["items[]"];
+
+				if(items.length < 5){
+					alert("Please choose 5");
+					return false;
+				}
+
 				delete data["items[]"];
 
 				data["items"] = items.join();

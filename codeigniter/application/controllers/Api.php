@@ -49,7 +49,9 @@ class Api extends CI_Controller {
 			//print_r($lang);
 			$lang = $data['language'];
 			
+			$this->db->where('sessionId',$id);
 			$q = $this->db->get('register');
+
 			$ret = $q->result();
 			$GLOBALS['data'][] = $ret;
 			$GLOBALS['data'][] = $this->getListings($lang);

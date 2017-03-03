@@ -19,11 +19,15 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	public function index($lang)
+	public function index($lang = null)
 	{
 		//Loading url helper			 
 		$this->load->helper('url');
 		$this->load->library('session');
+
+		if($lang == null){
+			$lang = "en";
+		}
 
         $newdata = array(
 		        'sessionId' => session_id(),
