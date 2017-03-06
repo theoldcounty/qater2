@@ -57,6 +57,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<script src="https://d3js.org/d3.v4.js"></script>
 
+
+		<script src="<?php echo base_url(); ?>assets/js/jquery-modal-master/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/jquery-modal-master/jquery.modal.css" type="text/css" media="screen" />
+
 		<script src="<?php echo base_url(); ?>assets/js/jquery.validate.js"></script>
 	    <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 
@@ -74,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="row">
 
 							<!--col-->
-							<div class="col-xs-4 col-md-2 col">
+							<div class="col-xs-5 col-md-2 col">
 								<img src="<?php echo base_url(); ?>assets/images/great-logo.png" alt="Great"/>
 							</div>
 							<!--col-->
@@ -128,7 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label for="email" data-ar="لبريد الإلكتروني">Email</label>
 							    <input type="text" id="email" name="email" value="">
 							   								   	 
-								<label class="terms" for="terms" data-ar="">I agree to the Visit Britain and Qatar Airways Terms and Conditions</label>
+								<label class="terms" for="terms"><span data-ar="I agree arb text">I agree to the Visit Britain and Qatar Airways</span> <a data-ar="terms button" href="#terms-text" rel="modal:open">Terms and Conditions</a></label>
 							    <input type="checkbox" id="terms" name="terms" value="1">
 
 							   	<!--
@@ -457,7 +461,7 @@ Let me know your thoughts / if this doesn't make sense.
 					<div class="row">
 					
 						<!--col-->
-						<div class="col-xs-4 col-md-2 col">
+						<div class="col-xs-5 col-md-2 col">
 							<img src="<?php echo base_url(); ?>assets/images/great-logo.png" alt="Great"/>
 						</div>
 						<!--col-->
@@ -502,5 +506,17 @@ Let me know your thoughts / if this doesn't make sense.
 		  return t;
 		}(document, "script", "twitter-wjs"));</script>
 
+
+		<div id="terms-text" style="display: none;" class="modal" data-ar="<p>ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p><p>ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p><p>ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p><p>ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>">
+		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+
+		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+
+		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+
+		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+		</div>
 	</body>
 </html>

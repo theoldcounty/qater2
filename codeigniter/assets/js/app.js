@@ -370,7 +370,7 @@ var app = {
 
 			$('[data-ar]').each(function(index) {
 				var arabicText = $(this).data("ar");
-				$(this).text(arabicText);
+				$(this).html(arabicText);
 				$(this).val(arabicText);
 			});
 
