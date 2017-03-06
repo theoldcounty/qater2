@@ -443,21 +443,25 @@ var app = {
 					required: true,
 					email: true
 				},
+				terms: "required"/*
 				termsBT: "required",
-				termsQAT: "required"
+				termsQAT: "required"*/
 			},
 			messages: {
 				firstName: "Please enter your firstname",
 				surname: "Please enter your lastname",
 				email: "Please enter a valid email address",
+				terms: "Please agree to Visit Britain and Qatar Airways Terms"/*
 				termsBT: "Please agree to the Visit Britain Terms",
-				termsQAT: "Please agree to the Qatar Terms"
+				termsQAT: "Please agree to the Qatar Terms"*/
 			},
 			submitHandler: function(form) {			    
 			    var data = JSON.parse(JSON.stringify($(form).serializeObject()));
+			    
+			    delete data["terms"];
 
-				delete data["termsBT"];
-				delete data["termsQAT"];
+				//delete data["termsBT"];
+				//delete data["termsQAT"];
 
 			    //console.log("data", data);
 				callback(data);

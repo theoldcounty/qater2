@@ -127,12 +127,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							    
 								<label for="email" data-ar="لبريد الإلكتروني">Email</label>
 							    <input type="text" id="email" name="email" value="">
-							   
+							   								   	 
+								<label class="terms" for="terms" data-ar="">I agree to the Visit Britain and Qatar Airways Terms and Conditions</label>
+							    <input type="checkbox" id="terms" name="terms" value="1">
+
+							   	<!--
 							    <label class="termsBT" for="termsBT" data-ar="وافق على شروط وأحكام Visit Britain.">I agree to the Visit Britain Terms and Conditions</label>
 							    <input type="checkbox" id="termsBT" name="termsBT" value="1">
 
 							    <label  class="termsQAT" for="termsQAT" data-ar="وافق على شروط وأحكام الخطوط الجوية القطرية.">I agree to the Qatar Airways Terms and Conditions</label>
 							    <input type="checkbox" id="termsQAT" name="termsQAT" value="1">
+							    -->
 
 							    <input type="submit" data-ar="لخطوة التالية" value="Next Step >">
 							  </fieldset>

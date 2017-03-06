@@ -473,6 +473,7 @@
     	top:0;
 	}
 
+	/*
 	.termsQAT,
 	.termsBT{
 		font-size: 12px;
@@ -483,6 +484,18 @@
 
 	#termsBT-error,
 	#termsQAT-error{
+		margin-left: 20px;
+	}
+	*/
+
+	.terms{
+		font-size: 12px;
+	}
+	.terms{
+		margin-top: 24px;
+	}
+
+	#terms-error{
 		margin-left: 20px;
 	}
 
