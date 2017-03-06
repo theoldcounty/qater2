@@ -316,6 +316,7 @@
 		width: 100%;
 		height: auto;
 		overflow:hidden;
+    	margin-bottom: 15px;
 	}
 
 	.imgwrap img{
@@ -497,6 +498,11 @@
 
 	#terms-error{
 		margin-left: 20px;
+	}
+
+	.ar #terms-error{
+		margin-left: 0;
+		margin-right: 20px;
 	}
 
 	.logoomgb{

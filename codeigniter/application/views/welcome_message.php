@@ -119,10 +119,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							
 							<form id="signupForm" method="get" action="">
 							  <fieldset>
-							    <label for="firstName" data-ar="لاسم الأول">Firstname</label>
+							    <label for="firstName" data-ar="لاسم الأول">First Name</label>
 							    <input type="text" id="firstName" name="firstName" value="">
 							    
-							    <label for="surname" data-ar="سم العائلة">Surname</label>
+							    <label for="surname" data-ar="سم العائلة">Last Name</label>
 							    <input type="text" id="surname" name="surname" value="">
 							    
 								<label for="email" data-ar="لبريد الإلكتروني">Email</label>
@@ -190,6 +190,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<option value="Sharjah" data-ar="لشارقة">Sharjah</option>
 									<option value="Ras Al Khaima" data-ar="رأس الخيمة">Ras Al Khaima</option>
 									<option value="Abu Dhabi" data-ar="بوظبي">Abu Dhabi</option>
+									<option value="Medina" data-ar="">Medina</option>
+									<option value="Abaha" data-ar="">Abaha</option>
+									<option value="Gassim" data-ar="">Gassim</option>
+									<option value="Hofuf" data-ar="">Hofuf</option>
+									<option value="Taif" data-ar="">Taif</option>
+									<option value="Yanbu" data-ar="">Yanbu</option>
+									<option value="Tabuk" data-ar="">Tabuk</option>
 								</select>
 
 								<input type="hidden" name="language" value="<?php echo $lang;?>">
@@ -381,14 +388,15 @@ Let me know your thoughts / if this doesn't make sense.
 								<div class="row">
 
 									<!--col-->
-									<div class="col-xs-12 col-md-6 col">
-										<div class="imgwrap">
-											<img src="http://media.dcentertainment.com/sites/default/files/PLASMCONV_Cv1_R1_gallery_5543c2cdea2c82.60410834.jpg">
+									<div class="col-xs-12 col-md-12 col">
+										<!--col-->
+										<div class="col-xs-12 col-md-6 col">
+											<div class="imgwrap">
+												<img src="<?php echo base_url(); ?>assets/images/assets/landscape/3.jpg">
+											</div>
 										</div>
-									</div>
-									<!--col-->
-									<!--col-->
-									<div class="col-xs-12 col-md-6 col">
+										<!--col-->
+
 										<h4>Fly to Edinburgh</h4>
 
 										<p>Get lost in the cobbled alleyways of the Old Town, admire the Georgian splendour of the New Town and climb Calton Hill for outstanding views across the city. One of the best times to visit is during summer when the enormous Edinburgh Festival is at its peak.</p>
@@ -400,16 +408,17 @@ Let me know your thoughts / if this doesn't make sense.
 
 								<!--row ,use as a section-->
 								<div class="row">
-
+									
 									<!--col-->
-									<div class="col-xs-12 col-md-6 col">
-										<div class="imgwrap">
-											<img src="http://media.dcentertainment.com/sites/default/files/PLASMCONV_Cv1_R1_gallery_5543c2cdea2c82.60410834.jpg">
+									<div class="col-xs-12 col-md-12 col">
+										<!--col-->
+										<div class="col-xs-12 col-md-6 col">
+											<div class="imgwrap">
+												<img src="<?php echo base_url(); ?>assets/images/assets/landscape/3.jpg">
+											</div>
 										</div>
-									</div>
-									<!--col-->
-									<!--col-->
-									<div class="col-xs-12 col-md-6 col">
+										<!--col-->
+
 										<h4>Fly to Edinburgh</h4>
 
 										<p>Get lost in the cobbled alleyways of the Old Town, admire the Georgian splendour of the New Town and climb Calton Hill for outstanding views across the city. One of the best times to visit is during summer when the enormous Edinburgh Festival is at its peak.</p>

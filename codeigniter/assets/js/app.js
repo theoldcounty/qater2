@@ -17,7 +17,7 @@ $.fn.serializeObject = function()
 };
 
 var app = {
-	getSelections(choices){
+	getSelections: function(choices){
 		var newData = Array();
 		var that = this;
 
@@ -448,9 +448,9 @@ var app = {
 				termsQAT: "required"*/
 			},
 			messages: {
-				firstName: "Please enter your firstname",
-				surname: "Please enter your lastname",
-				email: "Please enter a valid email address",
+				firstName: "Please enter your First Name",
+				surname: "Please enter your Last Name",
+				email: "Please enter a valid Email",
 				terms: "Please agree to Visit Britain and Qatar Airways Terms"/*
 				termsBT: "Please agree to the Visit Britain Terms",
 				termsQAT: "Please agree to the Qatar Terms"*/
@@ -476,7 +476,6 @@ var app = {
 				var axel = Math.random() + "";
 				var a = axel * 10000000000000;
 				$('body').append('<img src="https://ad.doubleclick.net/ddm/activity/src=2673654;type=visibrit;cat=vbdisbhp;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1;num=' + a + '?" width="1" height="1" alt=""/>');
-				
 				$('body').append('<img src="https://ads.undertone.com/t?trackerid=6183&cb=[INSERT_YOUR_CACHE-BUSTER_HERE]" style="display: none;" width="0" height="0" alt="" />');
 
 				break;		        
