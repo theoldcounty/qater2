@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<head>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 
 		<?php
 		if($lang == "en"){
@@ -47,6 +48,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.css">
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
 	     
+
+		<script src="<?php echo base_url(); ?>assets/js/jquery-modal-master/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/jquery-modal-master/jquery.modal.css" type="text/css" media="screen" />
+
+		<script src="<?php echo base_url(); ?>assets/js/picturefill.js" type="text/javascript"></script>
+
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.js"></script>
@@ -58,8 +65,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script src="https://d3js.org/d3.v4.js"></script>
 
 
-		<script src="<?php echo base_url(); ?>assets/js/jquery-modal-master/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/jquery-modal-master/jquery.modal.css" type="text/css" media="screen" />
 
 		<script src="<?php echo base_url(); ?>assets/js/jquery.validate.js"></script>
 	    <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
@@ -78,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="row">
 
 							<!--col-->
-							<div class="col-xs-5 col-md-2 col">
+							<div class="col-xs-5 col-md-2 pull-left col">
 								<img src="<?php echo base_url(); ?>assets/images/great-logo.png" alt="Great"/>
 							</div>
 							<!--col-->
@@ -446,8 +451,10 @@ Let me know your thoughts / if this doesn't make sense.
 
 			<div class="bg">
 				<picture>
-				    <source srcset="<?php echo base_url(); ?>assets/images/smaller.jpg" media="(max-width: 768px)">
+				    <!--[if IE 9]><video style="display: none;"><![endif]-->
+					<source srcset="<?php echo base_url(); ?>assets/images/smaller.jpg" media="(max-width: 768px)">
 				    <source srcset="<?php echo base_url(); ?>assets/images/default.jpg">
+				    <!--[if IE 9]></video><![endif]-->
 				    <img srcset="<?php echo base_url(); ?>assets/images/default.jpg" alt="My default image">
 				</picture>
 			</div>
@@ -461,7 +468,7 @@ Let me know your thoughts / if this doesn't make sense.
 					<div class="row">
 					
 						<!--col-->
-						<div class="col-xs-5 col-md-2 col">
+						<div class="col-xs-5 col-md-2 pull-left col">
 							<img src="<?php echo base_url(); ?>assets/images/great-logo.png" alt="Great"/>
 						</div>
 						<!--col-->
@@ -508,15 +515,19 @@ Let me know your thoughts / if this doesn't make sense.
 
 
 		<div id="terms-text" style="display: none;" class="modal" data-ar="<p>ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p><p>ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p><p>ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p><p>ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>">
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+		  
 
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+	<p>Qatar Airways and VisitBritain joint competition in the GCC // in 2017</p>
+	<p>Official terms and conditions</p>
+	<p>1.</p>
+	<p>1. PRIZE DRAW: VisitBritain (“Promoter”) will hold a grand draw on 24 March 20176. One Winner will be drawn from all competition entries submitted between 27 February – 19 March 2017 2. HOW TO ENTER: Entrants will be required to share the outcome of their tailored tour from the “Discover Britain Now” microsite to be automatically entered into the draw after they sign up to VisitBritain’s and Qatar Airway’s newsletters between 27 February 2017 – 19 March 2017. No purchase is required. Entries must be received by 23:59 AST (Arabia Standard Time) on 19 March 20176, to be eligible for inclusion in the draw. 3. QUALIFYING ENTRIES: One entry will be allowed per email address. Each entry must be a valid email address of the entrant. No robotic, macro, automatic, programmed, mechanically copied or similar entry methods are permitted; all such entries will be void and will subject that entrant to disqualification. Any attempt at multiple entries by an entrant with different email addresses will result in the expulsion of all identified entrant and the immediate cancellation of any potential winnings from the competition. Entry is strictly personal and the Entrant cannot in any circumstances participate under several pseudonyms or on behalf of other entrants. The Promoter and Qatar Airways reserves the right to require any entrant to justify the above conditions. Anyone not fulfilling these conditions or refusing to justify will be excluded from the competition and shall in case of winning, not receive the prizes. Incomplete, illegible, damaged, inaccurate, or late entries are void and not eligible. Promoter and Qatar Airways is not liable for any Internet or other communications failures or interruptions of service, any undelivered emails, including but not limited to emails that are not received because of a winner’s email privacy or spam filter settings which may block or redirect any Promoter and Qatar Airways related email, including any winner notification email or prize email to a junk, spam, or similar folder used to redirect unsolicited email or emails from unknown senders. Entrants are required to check their spam settings and folders for any winner notification email from Promoter and Qatar Airways. 4. ELIGIBILITY: Entrants must be 18 years or older by 17 March 20176 and reside within KSA (Kingdom of Saudi Arabia), Kuwait or UAE (United Arab Emirates) and must be legally able to travel from respective country of origin without legal guardians. Entrants must provide a valid email address and must be able to receive a notification from Promoter. By entering the draw, entrants agree to be bound by these Official Terms and Conditions and by all decisions of the judges and/or Promoter, whose decisions are binding and final. Employees, officers, directors and each of their immediate families (spouse, parents, siblings, and children) and household members of VisitBritain, Qatar Airways, its affiliates or agents are not eligible to enter or win. VOID WHERE PROHIBITED BY LAW. 5. SELECTION OF WINNER: The Prize winner will be drawn at random by Promoter on or around 24 th March 2017. The first valid entry drawn will win that entrant the Grand Prize. Winner will be notified by a Prize Notification sent to the email address on the entry form. Winner will be required to sign and return to Sponsor an Affidavit of Eligibility and Release before the prize is awarded. Promoter must receive the signed Affidavit of Eligibility and Release within 7 (seven) days of Promoter’s providing it to the Winner. If any prize notice is undeliverable for any reason, or if the winner does not respond within 10 (ten) days or does not comply with these Official Rules, the prize will be forfeited, and another winner will be selected at random from the remaining entries. Unclaimed or unredeemed prizes will not be awarded. The Promoter and Qatar Airways reserves the right to withhold delivery of the prize until proof of eligibility and identity has been confirmed or to disqualify the Winner from the competition due to any reason as decided by the Promoter and Qatar Airways in their sole discretion.6. PRIZES: Grand Prize: Two (2) Return Economy Class tickets from selected airports in the Winner’s country of origin to any GB gateway; 2 x nights bed and breakfast at a minimum 4*(star) hotel based on two sharing, 1 x (gateway specific) Experience for two people at xx. All internal transfers included. Approximate retail value will depend on the specific itinerary selected; approximate retail value of each prize: $4,500 each ticket.&nbsp; Promoter makes no warranty or representation about any prize. 7. CONDITIONS ON PRIZES: The decision of the Promoters regarding the Competition winners will be final and binding, and no correspondence will be entered into regarding the choice of the winner and/or the awarding of the prize. Any Prize or award relating to the Competition is not transferable and/or negotiable and may not be redeemed for cash. Promoter and Qatar Airways shall have no responsibility or obligation to a winner who is ineligible for a prize or is unable to or who does not accept or utilize the prize awarded, for any reason. Others terms and conditions apply. Please review full terms at the time of booking. Please read further Qatar Airways and Visit Britain terms and conditions on prizes. 8. RELEASE AND DISCLAIMER: Promoter and Qatar Airways is not responsible if the promotion terminates or the prize cannot be used or redeemed due to war, terrorism, bad weather, strikes, riot, civil disruption, Internet failures, or other acts of God or the winner. By entering the Competition, the entrant grants Promoter permission for the use of his/her name and likeness for advertising and promotional purposes without additional compensation, except where prohibited by law, if the entrant is selected as the winner.&nbsp;9. COLLECTION OF PERSONAL DATA: Entries will contain personal data that Promoter will collect and may use, subject to Promoter’s privacy policy, set forth at www.visitbritain.com/legal. By participating in the Competition, entrants hereby agree to Promoter&#39;s collection and usage of their personal information and acknowledge that they have read and accepted Promoter&#39;s privacy policy 11. CHOICE OF LAW: This promotion is governed by English Law and entrant agrees to the jurisdiction of the English courts in any proceeding.&nbsp;12. PROMOTER: British Tourist Authority trading as VisitBritain of Sanctuary Buildings, 20 Great Smith Street, London SW1P 3BT</p>
+	<p>CONDITIONS ON PRIZE QATAR AIRWAYS T&amp;C’s (Terms and Conditions)</p>
+	<p>Ticket should be issued within one (1) month from the winner being announcement. Outbound and Inbound Travel must be completed for a period of three (3) months from date of ticket issuance. The ticket to be issued in the winner’s name only. Valid only for outbound flights from KSA (JED, DMM, RUH, TIF, ELQ, HOF and AHB), KUW (Kuwait City) and UAE (Dubai, Sharjah, Ras Al Khaimah, Abu Dhabi) Frequent Flyer Mileage accrual is not permitted. Ticket is non-upgradable. All applicable taxes &amp; and fees to be paid by the passenger/s. The ticket(s) has no cash value and is non-transferrable, non-changeable, non-refundable, &amp; and valid on Qatar Airways Network only. No transfer, substitution, sale, or cash redemption of tickets is permitted. The voucher entitles the winner two (2) tickets based on seat availability of the relevant booking class. Seat capacity is controlled and may not be available on all flights and dateys.&nbsp;This particularly applies to peak travel periods.&nbsp; Please bear this in mind when booking your travel. Embargo restrictions will apply. It is the winner’s responsibility to obtain all necessary travel documents, passports, visas, medical documents, and to meet all health and insurance requirements. Ticket can only be issued from Qatar Airways Office in the above cities. Details available on qatarairways.com/sa.Others terms and conditions apply. Please review full terms at the time of booking.</p>
+	<p>CONDITIONS ON PRIZE VISITBRITAIN</p>
+	<p>Hotels and experience subject to change and availability. Advanced booking required. Only available as part of the Qatar Airways and VisitBritain competition and cannot be redeemed separately. The ticket to be issued in the winner’s name only. The prize has no cash alternative and is non- transferrable, non-changeable, non-refundable, &amp; and valid at VisitBritain pre-selected hotels and experience only. Others terms and conditions apply. Please review full terms at the time of booking.</p>
 
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 		</div>
 	</body>
 </html>

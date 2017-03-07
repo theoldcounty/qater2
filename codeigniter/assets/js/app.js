@@ -145,6 +145,8 @@ var app = {
 						//console.log("topChoice", topChoice);
 					}
 
+					//console.log("selection", selection);
+
 					//other marker
 					$(markerTemplate).find('.coverimg').remove();
 					$(markerTemplate).find('[data-type="curve"]').text(flyIntoText + " " + topChoice);
